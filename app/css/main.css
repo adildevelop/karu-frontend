@@ -1,0 +1,92 @@
+@font-face {
+    font-family: "Titillium Web Regular";
+    src: url('../bundles/TitilliumWebRegular.ttf');
+}
+
+body {
+    font-family: "Titillium Web Regular", sans-serif !important;
+    font-size: 14px;
+    overflow-x: hidden;
+}
+
+.tooltip-inner {
+    min-width: 500px;
+    max-width: 700px;
+}
+
+.btn-custom {
+    color: #fff;
+    background-color: #375d9b;
+}
+
+.btn-custom:hover {
+    color: #fff;
+    background-color: #2e4b7c;
+}
+
+.background-image {
+    position: absolute;
+    z-index: -100;
+    height: 100vh;
+    width: 100vw;
+    background-image: url("../img/background.png");
+    background-size: auto 100%;
+    background-position: center center;
+}
+
+.logo-image {
+    max-width: 103px;
+    height: auto;
+}
+
+.logo-text-image {
+    max-width: 120px;
+    height: auto;
+}
+
+.card-body img {
+    height: 150px;
+}
+
+.card-body h5 {
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+}
+
+.card-body p {
+    font-size: 18px;
+    text-align: center;
+}
+
+.main-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+}
+
+.main-form form {
+    width: 75vw;
+}
+
+.main-form label {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.doc-logo-block h6 {
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+}
+
+.doc-logo-block p {
+    font-size: 18px;
+    text-align: center;
+}
+
+.doc-logo-block img {
+    height: 150px;
+    margin-bottom: 30px;
+}

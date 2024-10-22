@@ -1,0 +1,592 @@
+<form id="umk-index">
+    <button id="back-to-menu" class="btn btn-custom">Вернуться в меню</button>
+
+    <div class="d-flex justify-content-center">
+        <div class="doc-logo-block me-3 my-auto">
+            <img src="img/document-icon.png" alt="Document logo">
+            <h6>Тип файла:</h6>
+            <p>УМК</p>
+        </div>
+        <div class="faculty-group-block">
+            <label for="facultyInput" class="mb-2">Введите факультет и кафедру:</label>
+            <input id="facultyInput" class="form-control mb-2" type="text" placeholder="Математики и информационых технологий">
+            <input id="departmentInput" class="form-control mb-2" type="text" placeholder="Прикладной математики и информатики">
+
+            <label for="subjectInput" class="mb-2">Введите название дисциплины и группы:</label>
+            <input id="subjectInput" class="form-control mb-2" type="text" placeholder="Компьютерные сети">
+            <input id="groupInput" class="form-control mb-2" type="text" placeholder="ИС-23-1к">
+        </div>
+    </div>
+
+    <div>
+        <label for="courseSelect" class="mt-3 mb-2">Введите курс, время обучения и количество кредитов::</label>
+        <div class="d-flex">
+            <select class="form-select mx-2" id="courseSelect">
+                <option selected>Курс</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+
+            <select class="form-select mx-2" id="studyTimeSelect">
+                <option selected>Время обучения</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+
+            <select class="form-select mx-2" id="creditsSelect">
+                <option selected>Кредиты</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="d-flex flex-column w-25 m-auto">
+        <input id="umk-continue" class="btn btn-custom mt-4" type="submit" value="Продолжить">
+    </div>
+</form>
+
+<form id="umk-first" class="d-none">
+    <div class="d-flex justify-content-center align-items-center">
+        <h4 class="my-0 me-1">Тематический план курса</h4>
+        <a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Тематический план содержит перечень учебных тем, объем часов по видам занятий, предусмотренных рабочим учебным планом образовательной программы">
+            <i class="fa-regular fa-circle-question fa-lg"></i>
+        </a>
+    </div>
+
+    <div class="d-flex justify-content-center mt-3">
+        <label for="tematics-count">Введите количество тем:</label>
+        <div class="d-flex ms-3">
+            <input type="number" class="form-control me-3" id="tematics-count" min="0">
+            <input type="submit" value="Сгенерировать" class="btn btn-custom" id="tematics-count-btn">
+        </div>
+    </div>
+
+    <div id="first-page-content">
+    </div>
+
+    <div class="d-flex flex-column w-25 m-auto">
+        <input id="umk-first-back" class="btn btn-custom my-4" type="submit" value="Назад">
+        <input id="umk-first-continue" class="btn btn-custom my-4" type="submit" value="Продолжить">
+    </div>
+</form>
+
+<form id="umk-second" class="d-none">
+    <div class="d-flex justify-content-center align-items-center">
+        <h4 class="my-0 me-1">Информация о преподавателе(-ях)</h4>
+        <a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="ФИО преподавателя (полностью) <br> Должность с указанием кафедры, ученая степень (звание) <br> Контактная информация <br> Месторасположение кафедры">
+            <i class="fa-regular fa-circle-question fa-lg"></i>
+        </a>
+    </div>
+
+    <div class="d-flex justify-content-center mt-3">
+        <label for="lecturer-count">Введите количество преподавателей:</label>
+        <div class="d-flex ms-3">
+            <input type="number" class="form-control me-3" id="lecturer-count" min="0">
+            <input type="submit" value="Сгенерировать" class="btn btn-custom" id="lecturer-count-btn">
+        </div>
+    </div>
+
+    <div id="second-page-lecturer-content">
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center mt-3">
+        <h4 class="my-0 me-1">Пререквезиты курса</h4>
+        <a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Данный раздел содержит перечень дисциплин, которые должны быть освоены до момента изучения предлагаемого курса">
+            <i class="fa-regular fa-circle-question fa-lg"></i>
+        </a>
+    </div>
+
+    <div class="mt-3">
+        <label for="lecturer-count">Введите пререквизиты курса:</label>
+        <textarea type="text" class="form-control me-3" id="prerequisites"></textarea>
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center mt-3">
+        <h4 class="my-0 me-1">Постреквезиты курса</h4>
+        <a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Данный раздел содержит перечень дисциплин, которые должны быть изучены после успешного освоения предлагаемого курса">
+            <i class="fa-regular fa-circle-question fa-lg"></i>
+        </a>
+    </div>
+
+    <div class="mt-3">
+        <label for="lecturer-count">Введите постреквизиты курса:</label>
+        <textarea type="text" class="form-control me-3" id="post-requisites"></textarea>
+    </div>
+
+    <div class="d-flex flex-column w-25 m-auto">
+        <input id="umk-second-back" class="btn btn-custom my-4" type="submit" value="Назад">
+        <input id="umk-second-continue" class="btn btn-custom my-4" type="submit" value="Продолжить">
+    </div>
+</form>
+
+<form id="umk-third" class="d-none">
+    <div class="d-flex justify-content-center align-items-center">
+        <h4 class="my-0 me-1">Краткое описание курса</h4>
+        <a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="1) Данный раздел должен содержать описательную информацию о том, какова цель изучения дисциплины, основное содержание и место в программе профессиональной подготовки специалиста.  Рекомендуется в качестве начального предложения использовать формулировку типа: Дисциплина изучается с целью формирования у обучающихся знаний/теоретических представлений о/навыков... Дальнейшее описание может содержать такие фразы, как: Курс направлен на изучение.... В курсе рассматриваются вопросы/проблемы.... <br>
+                                                                                               2) Рекомендуется описать курс с помощью 40-50 слов.">
+            <i class="fa-regular fa-circle-question fa-lg"></i>
+        </a>
+    </div>
+
+    <div class="mt-3">
+        <label for="course-description">Введите краткое описание курса:</label>
+        <textarea class="form-control me-3" id="course-description"></textarea>
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center mt-3">
+        <h4 class="my-0 me-1">Результаты обучения и методы оценки их достижимости</h4>
+        <a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="1) Данный раздел содержит перечень результатов обучения в контексте предлагаемого курса. Результаты обучения должны быть сформулированы с учетом принципов Таксономии Блума и начинаться с активного глагола 3 лица единственного числа (см. Приложение 1). <br>
+                                                                                               2) Каждый результат обучения должен сопровождаться методом оценки его достижимости. Метод оценки содержит указание на законченное действие и содержит глаголы «знает», «умеет», «владеет». При этом достижимость отдельно взятого результата может выражаться одним, двумя или тремя глаголами одновременно: в одних случаях для проверки достижимости результата достаточно обозначить одну категорию («знать» или «уметь», или «владеть»), в других – две катеории, в третьих – все три категории. Комбинация данных категорий должна быть обусловлена характером результата обучения, его предметной, метапредметной, личностной природы. <br>
+                                                                                               3) Количественный состав результатов обучения должен быть обусловлен уровнем сложности цели курса, его местом в программе профессиональной подготовки специалиста. Рекомендуется заявлять от 3-х результатов обучения.">
+            <i class="fa-regular fa-circle-question fa-lg"></i>
+        </a>
+    </div>
+
+    <div class="d-flex justify-content-center mt-4">
+        <label for="lo-count">Введите количество результатов обучения:</label>
+        <div class="d-flex ms-3">
+            <input type="number" class="form-control me-3" id="lo-count" min="0">
+            <input type="submit" value="Сгенерировать" class="btn btn-custom" id="lo-count-btn">
+        </div>
+    </div>
+
+    <div id="third-page-lo-content">
+    </div>
+
+    <div class="d-flex flex-column w-25 m-auto">
+        <input id="umk-third-back" class="btn btn-custom my-4" type="submit" value="Назад">
+        <input id="umk-third-continue" class="btn btn-custom my-4" type="submit" value="Продолжить">
+    </div>
+</form>
+
+<form id="umk-fourth" class="d-none">
+    <div class="d-flex justify-content-center align-items-center mt-3">
+        <h4 class="my-0 me-1">Методы обучения</h4>
+        <a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="Данный раздел содержит перечень методов обучения, которые будут использоваться преподавателем в процессе обучения.  <br>
+                                                                                               Для справки: в научной литературе принято выделять различные методы обучения, например: <br>
+                                                                                               - по источнику передачи информации:  словесный метод (лекция, дискуссия, работа с источником учебной информации), наглядный метод (работа с иллюстрациями и схемами, просмотр видеороликов), практический метод (выполнение кейсов, заданий, решение задач, проведение лабораторных работ и т.п.); <br>
+                                                                                               - по характеру познавательной деятельности обучающихся: информационно-рецептив¬ный метод (когда преподаватель передаёт информацию обучающимся); репродуктивный (обучающийся выполняет действия по заданному образцу); метод проблемного изложения (преподаватель формулирует проблему и показывает логические шаги для её решения); эвристический (преподаватель разбивает проблему на отдельные задачи, а обучающиеся их решают); исследовательский метод (обучающиеся ищут пути решения поставленных проблем); проектный метод (обучающиеся разрабатывают конкретный проект); метод перевернутого обучения (обучающиеся осваивают теоретическую тему самостоятельно, применяют её на практике в аудитории с участием преподавателя).">
+            <i class="fa-regular fa-circle-question fa-lg"></i>
+        </a>
+    </div>
+
+    <div class="mt-3">
+        <label for="teaching-methods">Введите методы обучения:</label>
+        <textarea class="form-control me-3" id="teaching-methods"></textarea>
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center mt-3">
+        <h4 class="my-0 me-1">Методы оценки результатов обучения</h4>
+        <a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="Данный раздел содержит перечень методов, которые будут использоваться преподавателем для оценки академического прогресса обучающихся.  <br>
+                                                                                               Для справки: в научной литературе принято выделять различные методы оценки результатов обучения, например: метод устного контроля, метод письменного контроля, метод программированного контроля, метод тестового контроля, метод портфолио и другие">
+            <i class="fa-regular fa-circle-question fa-lg"></i>
+        </a>
+    </div>
+
+    <div class="mt-3">
+        <label for="grade-methods">Введите методы оценки результатов обучения:</label>
+        <textarea class="form-control me-3" id="grade-methods"></textarea>
+    </div>
+
+    <div class="d-flex flex-column w-25 m-auto">
+        <input id="umk-fourth-back" class="btn btn-custom my-4" type="submit" value="Назад">
+        <input id="umk-fourth-continue" class="btn btn-custom my-4" type="submit" value="Продолжить">
+    </div>
+</form>
+
+<form id="umk-fifth" class="d-none">
+    <div class="d-flex justify-content-center align-items-center mt-3">
+        <h4 class="my-0 me-1">Перечень рекомендуемых источников по курсу</h4>
+        <a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="1) Данный раздел направлен на информирование обучающихся о наличии учебных источников по дисциплине: учебников, методических пособий, рекомендаций, монографий, периодических изданий, электронных продуктов, интернет-ресурсов. <br>
+                                                                                               2) Источники должны быть классифицированы в соответствии с предложенными рубриками и иметь сквозной порядковый номер, который должен использоваться в качестве ссылки в последующих разделах силлабуса. <br>
+                                                                                               3) В перечень основных источников  должны входить труды 10-ти последних лет издания; силлабусы для образовательных программ направления «Право» должны содержать ссылку на международные и национальные базы правовой информации. <br>
+                                                                                               4) В перечень дополнительных источников могут входить официальные документы, периодические издания, фундаментальные труды признанных учёных разных лет. <br>
+                                                                                               5) В перечне источников должны быть представлены труды зарубежных и отечественных авторов, в том числе преподавателей Карагандинского университета им. Е.А.Букетова. <br>
+                                                                                               6) Рекомендуемые источники должны быть на языке обучения. При необходимости в перечень могут быть включены источники на других языках. <br>
+                                                                                               7) Рекомендуется предлагать обучающимся не менее 10 источников.">
+            <i class="fa-regular fa-circle-question fa-lg"></i>
+        </a>
+    </div>
+
+    <div class="d-flex justify-content-center mt-3">
+        <label for="bl-count">Введите количество основной литературы:</label>
+        <div class="d-flex ms-3">
+            <input type="number" class="form-control me-3" id="bl-count" min="0">
+            <input type="submit" value="Сгенерировать" class="btn btn-custom" id="bl-count-btn">
+        </div>
+    </div>
+
+    <div id="fifth-page-bl-content">
+    </div>
+
+    <div class="d-flex justify-content-center mt-3">
+        <label for="al-count">Введите количество дополнительной литературы:</label>
+        <div class="d-flex ms-3">
+            <input type="number" class="form-control me-3" id="al-count" min="0">
+            <input type="submit" value="Сгенерировать" class="btn btn-custom" id="al-count-btn">
+        </div>
+    </div>
+
+    <div id="fifth-page-al-content">
+    </div>
+
+    <div class="d-flex flex-column w-25 m-auto">
+        <input id="umk-fifth-back" class="btn btn-custom my-4" type="submit" value="Назад">
+        <input id="umk-fifth-continue" class="btn btn-custom my-4" type="submit" value="Продолжить">
+    </div>
+</form>
+
+<form id="umk-sixth" class="d-none">
+    <div class="d-flex justify-content-center align-items-center mt-3">
+        <h4 class="my-0 me-1">План лекционных занятий</h4>
+        <a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="1) Данный раздел содержит информацию о том, какие вопросы будут рассматриваться в рамках каждой лекционной темы. План лекции должен отражать логику раскрытия рассматриваемой темы. Он может быть представлен в виде пронумерованного перечня вопросов, выносимых на лекционное занятие. <br>
+                                                                                               2) Указанная тема лекции должна соответствовать Тематическому плану курса.">
+            <i class="fa-regular fa-circle-question fa-lg"></i>
+        </a>
+    </div>
+
+    <div class="d-flex justify-content-center mt-3">
+        <label for="ll-count">Введите количество лекционных занятий:</label>
+        <div class="d-flex ms-3">
+            <input type="number" class="form-control me-3" id="ll-count" min="0">
+            <input type="submit" value="Сгенерировать" class="btn btn-custom" id="ll-count-btn">
+        </div>
+    </div>
+
+    <div id="sixth-page-ll-content">
+    </div>
+
+    <div class="d-flex flex-column w-25 m-auto">
+        <input id="umk-sixth-back" class="btn btn-custom my-4" type="submit" value="Назад">
+        <input id="umk-sixth-continue" class="btn btn-custom my-4" type="submit" value="Продолжить">
+    </div>
+</form>
+
+<form id="umk-seventh" class="d-none">
+    <div class="d-flex justify-content-center align-items-center mt-3">
+        <h4 class="my-0 me-1">План семинарных/практических занятий</h4>
+        <a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="1) Данный раздел содержит перечень вопросов и/или заданий, выносимых на обсуждение. <br>
+                                                                                               2) Указанная тема лекции должна соответствовать Тематическому плану курса.  <br>
+                                                                                               3) План занятия может сопровождаться методическими рекомендациями по выполнению заданий. <br>
+                                                                                               4) Ссылкой на перечень рекомендованной литературы является порядковый номер источника.">
+            <i class="fa-regular fa-circle-question fa-lg"></i>
+        </a>
+    </div>
+
+    <div class="d-flex justify-content-center mt-3">
+        <label for="sp-count">Введите количество семинарных/практических занятий:</label>
+        <div class="d-flex ms-3">
+            <input type="number" class="form-control me-3" id="sp-count" min="0">
+            <input type="submit" value="Сгенерировать" class="btn btn-custom" id="sp-count-btn">
+        </div>
+    </div>
+
+    <div id="seventh-page-sp-content">
+    </div>
+
+    <div class="d-flex flex-column w-25 m-auto">
+        <input id="umk-seventh-back" class="btn btn-custom my-4" type="submit" value="Назад">
+        <input id="umk-seventh-continue" class="btn btn-custom my-4" type="submit" value="Продолжить">
+    </div>
+</form>
+
+<form id="umk-eighth" class="d-none">
+    <div id="eighth-question-div" class="d-block">
+        <label class="w-100 text-center mb-3">Предусмотрено ли наличие лабораторных занятий по плану?</label>
+        <div class="d-flex align-items-center justify-content-center">
+            <input id="umk-eighth-yes" class="btn btn-custom me-3" type="submit" value="Да">
+            <input id="umk-eighth-no" class="btn btn-custom" type="submit" value="Нет">
+        </div>
+    </div>
+
+    <div id="eighth-content-div" class="d-none">
+        <div class="d-flex justify-content-center align-items-center mt-3">
+            <h4 class="my-0 me-1">План лабораторных занятий</h4>
+            <a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="1) Данный раздел содержит перечень вопросов и/или заданий, выносимых на обсуждение. <br>
+                                                                                                   2) Указанная тема лекции должна соответствовать Тематическому плану курса.  <br>
+                                                                                                   3) План занятия может сопровождаться методическими рекомендациями по выполнению заданий. <br>
+                                                                                                   4) Ссылкой на перечень рекомендованной литературы является порядковый номер источника.">
+                <i class="fa-regular fa-circle-question fa-lg"></i>
+            </a>
+        </div>
+
+        <div class="d-flex justify-content-center mt-3">
+            <label for="lab-count">Введите количество лабораторных занятий:</label>
+            <div class="d-flex ms-3">
+                <input type="number" class="form-control me-3" id="lab-count" min="0">
+                <input type="submit" value="Сгенерировать" class="btn btn-custom" id="lab-count-btn">
+            </div>
+        </div>
+
+        <div id="eighth-page-lab-content">
+        </div>
+
+        <div class="d-flex flex-column w-25 m-auto">
+            <input id="umk-eighth-back" class="btn btn-custom my-4" type="submit" value="Назад">
+            <input id="umk-eighth-continue" class="btn btn-custom my-4" type="submit" value="Продолжить">
+        </div>
+    </div>
+</form>
+
+<form id="umk-ninth" class="d-none">
+    <div class="d-flex justify-content-center align-items-center mt-3">
+        <h4 class="my-0 me-1">Задания для самостоятельной работы обучающегося под руководством преподавателя - СРОП</h4>
+        <a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="1) Данный раздел содержит задания для самостоятельного изучения темы под руководством преподавателя. <br>
+                                                                                               2) Указанная тема лекции должна соответствовать Тематическому плану курса. <br>
+                                                                                               3) Задания могут сопровождаться методическими рекомендациями по их выполнению.">
+            <i class="fa-regular fa-circle-question fa-lg"></i>
+        </a>
+    </div>
+
+    <div class="d-flex justify-content-center mt-3">
+        <label for="srop-count">Введите количество СРОП:</label>
+        <div class="d-flex ms-3">
+            <input type="number" class="form-control me-3" id="srop-count" min="0">
+            <input type="submit" value="Сгенерировать" class="btn btn-custom" id="srop-count-btn">
+        </div>
+    </div>
+
+    <div id="ninth-page-srop-content">
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center mt-3">
+        <h4 class="my-0 me-1">Задания для самостоятельной работы обучающегося - СРО</h4>
+        <a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="1) Данный раздел содержит задания для самостоятельного изучения тем. Задания могут носить комбинированный характер и охватывать содержание нескольких тем.  <br>
+                                                                                               2) Задания могут сопровождаться методическими рекомендациями по их выполнению.">
+            <i class="fa-regular fa-circle-question fa-lg"></i>
+        </a>
+    </div>
+
+    <div class="d-flex justify-content-center mt-3">
+        <label for="sro-count">Введите количество СРО:</label>
+        <div class="d-flex ms-3">
+            <input type="number" class="form-control me-3" id="sro-count" min="0">
+            <input type="submit" value="Сгенерировать" class="btn btn-custom" id="sro-count-btn">
+        </div>
+    </div>
+
+    <div id="ninth-page-sro-content">
+    </div>
+
+    <div class="d-flex flex-column w-25 m-auto">
+        <input id="umk-ninth-back" class="btn btn-custom my-4" type="submit" value="Назад">
+        <input id="umk-ninth-continue" class="btn btn-custom my-4" type="submit" value="Продолжить">
+    </div>
+</form>
+
+<form id="umk-tenth" class="d-none">
+    <div class="d-flex justify-content-center align-items-center mt-3">
+        <h4 class="my-0 me-1">Тематика письменных работ</h4>
+        <a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="Данный раздел не является обязательным и включается по необходимости, например, в случае, если письменная работа включена в перечень оцениваемых заданий.">
+            <i class="fa-regular fa-circle-question fa-lg"></i>
+        </a>
+    </div>
+
+    <div class="d-flex justify-content-center mt-3">
+        <label for="pw-count">Введите количество письменных работ:</label>
+        <div class="d-flex ms-3">
+            <input type="number" class="form-control me-3" id="pw-count" min="0">
+            <input type="submit" value="Сгенерировать" class="btn btn-custom" id="pw-count-btn">
+        </div>
+    </div>
+
+    <div id="tenth-page-pw-content">
+    </div>
+
+    <div class="d-flex flex-column w-25 m-auto">
+        <input id="umk-tenth-back" class="btn btn-custom my-4" type="submit" value="Назад">
+        <input id="umk-tenth-continue" class="btn btn-custom my-4" type="submit" value="Продолжить">
+    </div>
+</form>
+
+<form id="umk-eleventh" class="d-none">
+    <div class="d-flex justify-content-center align-items-center mt-3">
+        <h4 class="my-0 me-1">Политика оценивания</h4>
+        <a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="1) Количество заданий должно соответствовать количеству выставляемых в электронный журнал оценок. Последняя оценка складывается из суммарного результата работы обучающегося на занятиях и его посещаемости. <br>
+                                                                                               2) Наряду с заданиями текущего контроля в перечень включаются задания, выносимые на рубежный и итоговый контроль. Применительно к ним необходимо использовать следующие формулировки: рубежные контрольные задания и экзамен.  <br>
+                                                                                               3) Примеры заполнения формы: <br>
+                                                                                               - Вид задания: подготовка реферата/эссе/проекта, решение задач/кейсов, выполнение атрибуции художественных текстов и т.п.; для обозначения рубежного контроля следует использовать сочетание «выполнение рубежного контрольного задания», для итогового контроля – «выполнение экзаменационного задания». <br>
+                                                                                               - Форма отчета: устно, письменно, в формате тестирования;  <br>
+                                                                                               - Сроки сдачи: 6 неделя семестра; для экзамена – после 15 недели семестра; <br>
+                                                                                               4) По каждой теме занятия обучающемуся необходимо выставить количество баллов по принятой Шкале оценки. Итого обучающемуся по завершению курса необходимо получить суммарно 100 баллов.">
+            <i class="fa-regular fa-circle-question fa-lg"></i>
+        </a>
+    </div>
+
+    <div class="d-flex justify-content-center mt-3">
+        <label for="gp-count">Введите количество политик оценивания:</label>
+        <div class="d-flex ms-3">
+            <input type="number" class="form-control me-3" id="gp-count" min="0">
+            <input type="submit" value="Сгенерировать" class="btn btn-custom" id="gp-count-btn">
+        </div>
+    </div>
+
+    <div id="eleventh-page-gp-content">
+    </div>
+
+    <div class="d-flex flex-column w-25 m-auto">
+        <input id="umk-eleventh-back" class="btn btn-custom my-4" type="submit" value="Назад">
+        <input id="umk-eleventh-continue" class="btn btn-custom my-4" type="submit" value="Продолжить">
+    </div>
+</form>
+
+<form id="umk-twelfth" class="d-none">
+    <div class="d-flex justify-content-center align-items-center mt-3">
+        <h4 class="my-0 me-1">Критерии суммарного оценивания обучающихся за выполнение заданий</h4>
+        <a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="1) Данный раздел содержит критерии оценивания обучающихся в контексте предложенной дисциплины. Критерии носят суммативный характер и применяются для оценки результатов обучения по окончании курса. <br>
+                                                                                                   2) Данная информация должна сориентировать обучающегося в логике оценивания его итоговых результатов, помочь в проведении самооценки. Критерии должны соотноситься с заявленными результатами обучения и содержать оценочные характеристики уровня подготовки обучающегося по окончании курса.">
+            <i class="fa-regular fa-circle-question fa-lg"></i>
+        </a>
+    </div>
+
+    <div class="d-flex justify-content-center mt-4 w-100">
+        <label class="w-25 text-center" for="ac-a">A 4,0 (95-100)
+            <a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="«Отлично» (А) должна соответствовать критерию, характеризующему высокий уровень подготовки обучающегося, который демонстрирует исключительное понимание материала, умение выражать аргументированные суждения, умение отстаивать свою позицию, практические умения и навыки, а также качественное выполнение всех заданий.">
+                <i class="fa-regular fa-circle-question fa-xs"></i>
+            </a>
+        </label>
+        <div class="d-flex ms-3 w-75">
+            <textarea type="number" class="form-control me-3" id="ac-a"></textarea>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center mt-4 w-100">
+        <label class="w-25 text-center" for="ac-a-minus">A- 3,67 (90-94)
+            <a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="«Отлично» (А-) должна соответствовать критерию, характеризующему полное понимание теоретического материала, соблюдает требования преподавателя, выполнение заданий, предусмотренных учебной программой">
+                <i class="fa-regular fa-circle-question fa-xs"></i>
+            </a>
+        </label>
+        <div class="d-flex ms-3 w-75">
+            <textarea type="number" class="form-control me-3" id="ac-a-minus"></textarea>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center mt-4 w-100">
+        <label class="w-25 text-center" for="ac-b-plus">B+ 3,33 (85-89)
+            <a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="««Хорошо» (В+) должна соответствовать критерию, характеризующему владение необходимым объемом знаний, наличие способности логически и верно выражать мысли по теме, понимание материала и выполняет все требования преподавателя">
+                <i class="fa-regular fa-circle-question fa-xs"></i>
+            </a>
+        </label>
+        <div class="d-flex ms-3 w-75">
+            <textarea type="number" class="form-control me-3" id="ac-b-plus"></textarea>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center mt-4 w-100">
+        <label class="w-25 text-center" for="ac-b">B 3,0 (80-84)
+            <a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="«Хорошо» (В) Знание фактического материала, умеет формулировать обоснованные ответы с примерами, демонстрирует логическую последовательность в изложении материала">
+                <i class="fa-regular fa-circle-question fa-xs"></i>
+            </a>
+        </label>
+        <div class="d-flex ms-3 w-75">
+            <textarea type="number" class="form-control me-3" id="ac-b"></textarea>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center mt-4 w-100">
+        <label class="w-25 text-center" for="ac-b-minus">B- 2,67 (75-79)
+            <a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="«Хорошо» (В-) Знание фактического материала, умеет формулировать обоснованные ответы с примерами, демонстрирует логическую последовательность в изложении материала">
+                <i class="fa-regular fa-circle-question fa-xs"></i>
+            </a>
+        </label>
+        <div class="d-flex ms-3 w-75">
+            <textarea type="number" class="form-control me-3" id="ac-b-minus"></textarea>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center mt-4 w-100">
+        <label class="w-25 text-center" for="ac-c-plus">C+ 2,33 (70-74)
+            <a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="«Хорошо» (С+) Владение теоретическими и практическими умениями, навыками, не в полной мере владеет умением аргументировать и делать выводы.">
+                <i class="fa-regular fa-circle-question fa-xs"></i>
+            </a>
+        </label>
+        <div class="d-flex ms-3 w-75">
+            <textarea type="number" class="form-control me-3" id="ac-c-plus"></textarea>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center mt-4 w-100">
+        <label class="w-25 text-center" for="ac-c">C 2,0 (65-69)
+            <a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="«Хорошо» (С) Владение теоретическими и практическими умениями, навыками, не в полной мере владеет умением аргументировать и делать выводы.">
+                <i class="fa-regular fa-circle-question fa-xs"></i>
+            </a>
+        </label>
+        <div class="d-flex ms-3 w-75">
+            <textarea type="number" class="form-control me-3" id="ac-c"></textarea>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center mt-4 w-100">
+        <label class="w-25 text-center" for="ac-c-minus">C- 1,67 (60-64)
+            <a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="«Хорошо» (С-) Владение теоретическими и практическими умениями, навыками, не в полной мере владеет умением аргументировать и делать выводы.">
+                <i class="fa-regular fa-circle-question fa-xs"></i>
+            </a>
+        </label>
+        <div class="d-flex ms-3 w-75">
+            <textarea type="number" class="form-control me-3" id="ac-c-minus"></textarea>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center mt-4 w-100">
+        <label class="w-25 text-center" for="ac-d-plus">D+ 1,33 (55-59)
+            <a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="«Удовлетворительно» (D+) должна соответствовать критерию, характеризующему средний уровень подготовки обучающегося, который демонстрирует частичное понимание материала, выполняет только часть требований преподавателя.">
+                <i class="fa-regular fa-circle-question fa-xs"></i>
+            </a>
+        </label>
+        <div class="d-flex ms-3 w-75">
+            <textarea type="number" class="form-control me-3" id="ac-d-plus"></textarea>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center mt-4 w-100">
+        <label class="w-25 text-center" for="ac-d">D 1,0 (50-54)
+            <a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="«Удовлетворительно» (D) Отсутствие способности самостоятельно делать выводы, приводить примеры, отсутствие логической последовательности в изложении материала.">
+                <i class="fa-regular fa-circle-question fa-xs"></i>
+            </a>
+        </label>
+        <div class="d-flex ms-3 w-75">
+            <textarea type="number" class="form-control me-3" id="ac-d"></textarea>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center mt-4 w-100">
+        <label class="w-25 text-center" for="ac-fx">FX 0,5 (25-49)
+            <a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="«Неудовлетворительно» (FX) Низкий уровень подготовки, не  полностью выполняет требования преподавателя.">
+                <i class="fa-regular fa-circle-question fa-xs"></i>
+            </a>
+        </label>
+        <div class="d-flex ms-3 w-75">
+            <textarea type="number" class="form-control me-3" id="ac-fx"></textarea>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center mt-4 w-100">
+        <label class="w-25 text-center" for="ac-f">F 0 (0-24)
+            <a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="«Неудовлетворительно (F) Оценка «Неудовлетворительно» должна соответствовать критерию, характеризующему отсутствие знаний, не сформированы практические навыки, не выполняет требования преподавателя.">
+                <i class="fa-regular fa-circle-question fa-xs"></i>
+            </a>
+        </label>
+        <div class="d-flex ms-3 w-75">
+            <textarea type="number" class="form-control me-3" id="ac-f"></textarea>
+        </div>
+    </div>
+
+    <div class="d-flex flex-column w-25 m-auto">
+        <input id="umk-twelfth-back" class="btn btn-custom my-4" type="submit" value="Назад">
+        <input id="umk-twelfth-continue" class="btn btn-custom my-4" type="submit" value="Сгенерировать">
+    </div>
+</form>
