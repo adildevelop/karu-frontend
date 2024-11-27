@@ -1,6 +1,25 @@
-<form id="umk-index">
-    <button id="back-to-menu" class="btn btn-custom">Вернуться в меню</button>
+<form id="umk-language">
+    <div class="d-flex">
+        <button id="back-to-menu" class="btn btn-custom">Вернуться в меню</button>
+    </div>
 
+    <div class="d-flex justify-content-center">
+        <div>
+            <label for="languageSelect" class="mb-2">Выберите язык документа:</label>
+            <select class="form-select mx-2" id="languageSelect">
+                <option value="kz">Қазақша</option>
+                <option value="ru">Русский</option>
+                <option value="en">English</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="d-flex flex-column w-25 m-auto">
+        <input id="umk-continue" class="btn btn-custom mt-4" type="submit" value="Продолжить">
+    </div>
+</form>
+
+<form id="umk-index" class="d-none">
     <div class="d-flex justify-content-center">
         <div class="doc-logo-block me-3 my-auto">
             <img src="img/document-icon.png" alt="Document logo">
@@ -19,7 +38,7 @@
     </div>
 
     <div>
-        <label for="courseSelect" class="mt-3 mb-2">Введите курс, время обучения и количество кредитов::</label>
+        <label for="courseSelect" class="mt-3 mb-2">Введите курс, время обучения и количество кредитов:</label>
         <div class="d-flex">
             <select class="form-select mx-2" id="courseSelect">
                 <option selected>Курс</option>
@@ -55,7 +74,7 @@
     </div>
 
     <div class="d-flex flex-column w-25 m-auto">
-        <input id="umk-continue" class="btn btn-custom mt-4" type="submit" value="Продолжить">
+        <input id="umk-index-continue" class="btn btn-custom mt-4" type="submit" value="Продолжить">
     </div>
 </form>
 
@@ -298,7 +317,25 @@
     <div id="seventh-page-sp-content">
     </div>
 
+    <div class="modal fade" id="seventh-formula-modal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="seventhFormulaModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Вставка формулы</h1>
+                </div>
+                <div class="modal-body">
+                    <math-field id="math-editor" style="width: 100%">f(x) = \sin(x+\pi)</math-field>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отменить</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="math-insert-formula">Вставить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="d-flex flex-column w-25 m-auto">
+        <button id="umk-seventh-formula" class="btn btn-custom my-4" type="button" data-bs-toggle="modal" data-bs-target="#seventh-formula-modal">Вставить формулу</button>
         <input id="umk-seventh-back" class="btn btn-custom my-4" type="submit" value="Назад">
         <input id="umk-seventh-continue" class="btn btn-custom my-4" type="submit" value="Продолжить">
     </div>
@@ -310,6 +347,10 @@
         <div class="d-flex align-items-center justify-content-center">
             <input id="umk-eighth-yes" class="btn btn-custom me-3" type="submit" value="Да">
             <input id="umk-eighth-no" class="btn btn-custom" type="submit" value="Нет">
+        </div>
+
+        <div class="d-flex flex-column w-25 m-auto">
+            <input id="umk-eighth-question-back" class="btn btn-custom my-4" type="submit" value="Назад">
         </div>
     </div>
 

@@ -3,6 +3,7 @@ function createUmk() {
         url: window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/')) + '/umk.html',
         method: 'get',
         success: function(data){
+            var currentTextarea = '';
             document.querySelector('.main-form').innerHTML = data;
             enableTooltips();
 
@@ -19,11 +20,12 @@ function createUmk() {
                 for (let i = 1; i <= tematicsCountInput.value; i++) {
                     text += '<div class="d-flex mt-3">\n' +
                         '        <label class="me-2">' + i + '. </label>\n' +
-                        '        <div>\n' +
+                        '        <div class="w-100">\n' +
                         '             <input type="text" class="theme-input form-control" id="theme-input-' + 1 + '" placeholder="Наименование темы">\n' +
                         '             <div class="d-flex mt-3">\n' +
                         '                  <input type="number" class="lection-count form-control me-3" id="lection-count-' + 1 + '" min="0" placeholder="Лекции">\n' +
                         '                  <input type="number" class="seminar-count form-control me-3" id="seminar-count-' + 1 + '" min="0" placeholder="Семинары">\n' +
+                        '                  <input type="number" class="lab-count form-control me-3" id="lab-count-' + 1 + '" min="0" placeholder="Лабораторные">\n' +
                         '                  <input type="number" class="srsp-count form-control me-3" id="srsp-count-' + 1 + '" min="0" placeholder="СРСП">\n' +
                         '                  <input type="number" class="srs-count form-control" id="srs-count-' + 1 + '" min="0" placeholder="СРС">\n' +
                         '             </div>\n' +
@@ -153,6 +155,14 @@ function createUmk() {
 
                 const seventhPageSpContent = document.getElementById('seventh-page-sp-content');
                 seventhPageSpContent.innerHTML = text;
+
+                let spqInputs = document.querySelectorAll('.spq-input');
+
+                for (let i = 0; i < spqInputs.length; i++) {
+                    spqInputs[i].addEventListener('focus', function (event) {
+                        currentTextarea = event.target;
+                    });
+                }
             });
 
             document.getElementById('lab-count-btn').addEventListener('click', function (event) {
@@ -266,6 +276,25 @@ function createUmk() {
                 event.preventDefault();
 
                 let data = {
+                    language: document.getElementById('languageSelect').value,
+                }
+
+                $.ajax({
+                    url: apiUrl + '/umk',
+                    method: 'post',
+                    data: data,
+                    success: function(token){
+                        localStorage.setItem("umkToken", token)
+                        document.getElementById('umk-language').classList.add('d-none');
+                        document.getElementById('umk-index').classList.remove('d-none');
+                    }
+                });
+            });
+
+            document.getElementById('umk-index-continue').addEventListener('click', function (event) {
+                event.preventDefault();
+
+                let data = {
                     faculty: document.getElementById('facultyInput').value,
                     department: document.getElementById('departmentInput').value,
                     subject: document.getElementById('subjectInput').value,
@@ -276,11 +305,13 @@ function createUmk() {
                 }
 
                 $.ajax({
-                    url: apiUrl + '/umk',
-                    method: 'get',
+                    url: apiUrl + '/umk-index',
+                    method: 'post',
+                    headers: {
+                        "Umk-token": localStorage.getItem("umkToken")
+                    },
                     data: data,
-                    success: function(token){
-                        localStorage.setItem("umkToken", token)
+                    success: function(msg){
                         document.getElementById('umk-index').classList.add('d-none');
                         document.getElementById('umk-first').classList.remove('d-none');
                     }
@@ -293,12 +324,14 @@ function createUmk() {
                 let themeInputs = document.querySelectorAll('.theme-input');
                 let lectionCounts = document.querySelectorAll('.lection-count');
                 let seminarCounts = document.querySelectorAll('.seminar-count');
+                let labCounts = document.querySelectorAll('.lab-count');
                 let srspCounts = document.querySelectorAll('.srsp-count');
                 let srsCounts = document.querySelectorAll('.srs-count');
 
                 let themes = '';
                 let lections = '';
                 let seminars = '';
+                let labs = '';
                 let srsps = '';
                 let srss = '';
 
@@ -306,15 +339,17 @@ function createUmk() {
                     themes += themeInputs[i].value;
                     lections += lectionCounts[i].value;
                     seminars += seminarCounts[i].value;
+                    labs += labCounts[i].value;
                     srsps += srspCounts[i].value;
                     srss += srsCounts[i].value;
 
                     if (i !== themeInputs.length - 1) {
-                        themes += '; ';
-                        lections += '; ';
-                        seminars += '; ';
-                        srsps += '; ';
-                        srss += '; ';
+                        themes += '/;-;/ ';
+                        lections += '/;-;/ ';
+                        seminars += '/;-;/ ';
+                        labs += '/;-;/ ';
+                        srsps += '/;-;/ ';
+                        srss += '/;-;/ ';
                     }
                 }
 
@@ -323,6 +358,7 @@ function createUmk() {
                     themes: themes,
                     lections: lections,
                     seminars: seminars,
+                    labs: labs,
                     srsps: srsps,
                     srss: srss
                 }
@@ -361,7 +397,7 @@ function createUmk() {
                     lecturers += lecturerInputs[i].value;
 
                     if (i !== lecturerInputs.length - 1) {
-                        lecturers += '; ';
+                        lecturers += '/;-;/ ';
                     }
                 }
 
@@ -408,8 +444,8 @@ function createUmk() {
                     methods += methodsInputs[i].value;
 
                     if (i !== loInputs.length - 1) {
-                        los += '; ';
-                        methods += '; ';
+                        los += '/;-;/ ';
+                        methods += '/;-;/ ';
                     }
                 }
 
@@ -486,7 +522,7 @@ function createUmk() {
                     bls += blInputs[i].value;
 
                     if (i !== blInputs.length - 1) {
-                        bls += '; ';
+                        bls += '/;-;/ ';
                     }
                 }
 
@@ -494,7 +530,7 @@ function createUmk() {
                     als += alInputs[i].value;
 
                     if (i !== alInputs.length - 1) {
-                        als += '; ';
+                        als += '/;-;/ ';
                     }
                 }
 
@@ -540,8 +576,8 @@ function createUmk() {
                     lps += lpInputs[i].value;
 
                     if (i !== lsInputs.length - 1) {
-                        lss += '; ';
-                        lps += '; ';
+                        lss += '/;-;/ ';
+                        lps += '/;-;/ ';
                     }
                 }
 
@@ -593,10 +629,10 @@ function createUmk() {
                     spls += splInputs[i].value;
 
                     if (i !== spsInputs.length - 1) {
-                        spss += '; ';
-                        spqs += '; ';
-                        sprs += '; ';
-                        spls += '; ';
+                        spss += '/;-;/ ';
+                        spqs += '/;-;/ ';
+                        sprs += '/;-;/ ';
+                        spls += '/;-;/ ';
                     }
                 }
 
@@ -637,7 +673,6 @@ function createUmk() {
                 let rlabInputs = document.querySelectorAll('.rlab-input');
                 let llabInputs = document.querySelectorAll('.llab-input');
 
-
                 let slabs = '';
                 let qlabs = '';
                 let rlabs = '';
@@ -650,10 +685,10 @@ function createUmk() {
                     llabs += llabInputs[i].value;
 
                     if (i !== slabInputs.length - 1) {
-                        slabs += '; ';
-                        qlabs += '; ';
-                        rlabs += '; ';
-                        llabs += '; ';
+                        slabs += '/;-;/ ';
+                        qlabs += '/;-;/ ';
+                        rlabs += '/;-;/ ';
+                        llabs += '/;-;/ ';
                     }
                 }
 
@@ -677,6 +712,13 @@ function createUmk() {
                         document.getElementById('umk-ninth').classList.remove('d-none');
                     }
                 });
+            });
+
+            document.getElementById('umk-eighth-question-back').addEventListener('click', function (event) {
+                event.preventDefault();
+
+                document.getElementById('umk-eighth').classList.add('d-none');
+                document.getElementById('umk-seventh').classList.remove('d-none');
             });
 
             document.getElementById('umk-eighth-back').addEventListener('click', function (event) {
@@ -709,9 +751,9 @@ function createUmk() {
                     sroprs += sroprInputs[i].value;
 
                     if (i !== sropsInputs.length - 1) {
-                        sropss += '; ';
-                        sropqs += '; ';
-                        sroprs += '; ';
+                        sropss += '/;-;/ ';
+                        sropqs += '/;-;/ ';
+                        sroprs += '/;-;/ ';
                     }
                 }
 
@@ -721,9 +763,9 @@ function createUmk() {
                     srors += srorInputs[i].value;
 
                     if (i !== srosInputs.length - 1) {
-                        sross += '; ';
-                        sroqs += '; ';
-                        srors += '; ';
+                        sross += '/;-;/ ';
+                        sroqs += '/;-;/ ';
+                        srors += '/;-;/ ';
                     }
                 }
 
@@ -770,7 +812,7 @@ function createUmk() {
                     pws += pwInputs[i].value;
 
                     if (i !== pwInputs.length - 1) {
-                        pws += '; ';
+                        pws += '/;-;/ ';
                     }
                 }
 
@@ -826,12 +868,12 @@ function createUmk() {
                     gpb += gpbInputs[i].value;
 
                     if (i !== gpsInputs.length - 1) {
-                        gps += '; ';
-                        gpt += '; ';
-                        gpf += '; ';
-                        gpr += '; ';
-                        gpd += '; ';
-                        gpb += '; ';
+                        gps += '/;-;/ ';
+                        gpt += '/;-;/ ';
+                        gpf += '/;-;/ ';
+                        gpr += '/;-;/ ';
+                        gpd += '/;-;/ ';
+                        gpb += '/;-;/ ';
                     }
                 }
 
@@ -889,7 +931,7 @@ function createUmk() {
                     texts += dataArray[i].value;
 
                     if (i !== 11) {
-                        texts += '; ';
+                        texts += '/;-;/ ';
                     }
                 }
 
@@ -939,6 +981,10 @@ function createUmk() {
 
                 document.getElementById('umk-eighth').classList.add('d-none');
                 document.getElementById('umk-ninth').classList.remove('d-none');
+            });
+
+            document.getElementById('math-insert-formula').addEventListener('click', function () {
+                currentTextarea.value += document.getElementById('math-editor').value;
             });
         }
     });

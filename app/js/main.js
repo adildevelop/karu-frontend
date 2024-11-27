@@ -1,3 +1,6 @@
+var apiUrl = 'http://localhost:8000';
+// var apiUrl = 'https://innovative-faye-adildevelop-3c32d2c9.koyeb.app/';
+
 $( document ).ready(function () {
     if (typeof localStorage === "undefined" || localStorage === null) {
         var LocalStorage = require('node-localstorage').LocalStorage;
@@ -6,10 +9,6 @@ $( document ).ready(function () {
 
     openMainMenu();
 });
-
-var apiUrl = 'http://localhost:8000';
-// var apiUrl = 'http://192.168.100.5:8000';
-
 
 function openMainMenu() {
     $.ajax({
