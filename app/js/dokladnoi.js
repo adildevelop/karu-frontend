@@ -237,6 +237,8 @@ function createDokladnoi() {
                     end_time: document.getElementById('timeEnd').value,
                 }
 
+                document.querySelector('.loader-parent').classList.remove('d-none');
+
                 $.ajax({
                     url: apiUrl,
                     method: 'get',
@@ -246,6 +248,7 @@ function createDokladnoi() {
                     },
                     data: data,
                     success: function(blob){
+                        document.querySelector('.loader-parent').classList.add('d-none');
                         let link=document.createElement('a');
                         link.href=window.URL.createObjectURL(blob);
                         link.download="dokladnoi.pdf";

@@ -350,6 +350,13 @@ function createUmk() {
                 });
             });
 
+            document.getElementById('umk-index-back').addEventListener('click', function (event) {
+                event.preventDefault();
+
+                document.getElementById('umk-index').classList.add('d-none');
+                document.getElementById('umk-language').classList.remove('d-none');
+            });
+
             document.getElementById('umk-first-continue').addEventListener('click', function (event) {
                 event.preventDefault();
 
@@ -971,6 +978,8 @@ function createUmk() {
                     texts: texts
                 }
 
+                document.querySelector('.loader-parent').classList.remove('d-none');
+
                 $.ajax({
                     url: apiUrl + '/umk/twelfth',
                     method: 'post',
@@ -982,6 +991,7 @@ function createUmk() {
                     },
                     data: data,
                     success: function(blob){
+                        document.querySelector('.loader-parent').classList.add('d-none');
                         let link = document.createElement('a');
                         link.href = window.URL.createObjectURL(blob);
                         link.download = "umk.pdf";
