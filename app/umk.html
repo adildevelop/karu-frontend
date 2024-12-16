@@ -31,9 +31,9 @@
             <input id="facultyInput" class="form-control mb-2" type="text" placeholder="Математики и информационых технологий">
             <input id="departmentInput" class="form-control mb-2" type="text" placeholder="Прикладной математики и информатики">
 
-            <label for="subjectInput" class="mb-2">Введите название дисциплины и группы:</label>
+            <label for="subjectInput" class="mb-2">Введите название дисциплины и образовательной программы:</label>
             <input id="subjectInput" class="form-control mb-2" type="text" placeholder="Компьютерные сети">
-            <input id="groupInput" class="form-control mb-2" type="text" placeholder="ИС-23-1к">
+            <input id="groupInput" class="form-control mb-2" type="text" placeholder="6B06103 - Информационные системы">
         </div>
     </div>
 
@@ -324,11 +324,11 @@
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Вставка формулы</h1>
                 </div>
                 <div class="modal-body">
-                    <math-field id="math-editor" style="width: 100%">f(x) = \sin(x+\pi)</math-field>
+                    <math-field id="seventh-math-editor" style="width: 100%">f(x) = \sin(x+\pi)</math-field>
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отменить</button>
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="math-insert-formula">Вставить</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="seventh-math-insert-formula">Вставить</button>
                 </div>
             </div>
         </div>
@@ -376,7 +376,25 @@
         <div id="eighth-page-lab-content">
         </div>
 
+        <div class="modal fade" id="eighth-formula-modal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="eighthFormulaModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Вставка формулы</h1>
+                    </div>
+                    <div class="modal-body">
+                        <math-field id="eighth-math-editor" style="width: 100%">f(x) = \sin(x+\pi)</math-field>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отменить</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="eighth-math-insert-formula">Вставить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="d-flex flex-column w-25 m-auto">
+            <button id="umk-eighth-formula" class="btn btn-custom my-4" type="button" data-bs-toggle="modal" data-bs-target="#eighth-formula-modal">Вставить формулу</button>
             <input id="umk-eighth-back" class="btn btn-custom my-4" type="submit" value="Назад">
             <input id="umk-eighth-continue" class="btn btn-custom my-4" type="submit" value="Продолжить">
         </div>
@@ -423,7 +441,25 @@
     <div id="ninth-page-sro-content">
     </div>
 
+    <div class="modal fade" id="ninth-formula-modal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="ninthFormulaModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Вставка формулы</h1>
+                </div>
+                <div class="modal-body">
+                    <math-field id="ninth-math-editor" style="width: 100%">f(x) = \sin(x+\pi)</math-field>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отменить</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="ninth-math-insert-formula">Вставить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="d-flex flex-column w-25 m-auto">
+        <button id="umk-ninth-formula" class="btn btn-custom my-4" type="button" data-bs-toggle="modal" data-bs-target="#ninth-formula-modal">Вставить формулу</button>
         <input id="umk-ninth-back" class="btn btn-custom my-4" type="submit" value="Назад">
         <input id="umk-ninth-continue" class="btn btn-custom my-4" type="submit" value="Продолжить">
     </div>

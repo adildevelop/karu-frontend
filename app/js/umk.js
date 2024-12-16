@@ -157,9 +157,13 @@ function createUmk() {
                 seventhPageSpContent.innerHTML = text;
 
                 let spqInputs = document.querySelectorAll('.spq-input');
+                let sprInputs = document.querySelectorAll('.spr-input');
 
                 for (let i = 0; i < spqInputs.length; i++) {
                     spqInputs[i].addEventListener('focus', function (event) {
+                        currentTextarea = event.target;
+                    });
+                    sprInputs[i].addEventListener('focus', function (event) {
                         currentTextarea = event.target;
                     });
                 }
@@ -185,6 +189,18 @@ function createUmk() {
 
                 const eighthPageLabContent = document.getElementById('eighth-page-lab-content');
                 eighthPageLabContent.innerHTML = text;
+
+                let qlabInputs = document.querySelectorAll('.qlab-input');
+                let rlabInputs = document.querySelectorAll('.rlab-input');
+
+                for (let i = 0; i < qlabInputs.length; i++) {
+                    qlabInputs[i].addEventListener('focus', function (event) {
+                        currentTextarea = event.target;
+                    });
+                    rlabInputs[i].addEventListener('focus', function (event) {
+                        currentTextarea = event.target;
+                    });
+                }
             });
 
             document.getElementById('srop-count-btn').addEventListener('click', function (event) {
@@ -206,6 +222,14 @@ function createUmk() {
 
                 const ninthPageSropContent = document.getElementById('ninth-page-srop-content');
                 ninthPageSropContent.innerHTML = text;
+
+                let sropqInputs = document.querySelectorAll('.sropq-input');
+
+                for (let i = 0; i < sropqInputs.length; i++) {
+                    sropqInputs[i].addEventListener('focus', function (event) {
+                        currentTextarea = event.target;
+                    });
+                }
             });
 
             document.getElementById('sro-count-btn').addEventListener('click', function (event) {
@@ -227,6 +251,14 @@ function createUmk() {
 
                 const ninthPageSroContent = document.getElementById('ninth-page-sro-content');
                 ninthPageSroContent.innerHTML = text;
+
+                let sroqInputs = document.querySelectorAll('.sroq-input');
+
+                for (let i = 0; i < sroqInputs.length; i++) {
+                    sroqInputs[i].addEventListener('focus', function (event) {
+                        currentTextarea = event.target;
+                    });
+                }
             });
 
             document.getElementById('pw-count-btn').addEventListener('click', function (event) {
@@ -983,8 +1015,16 @@ function createUmk() {
                 document.getElementById('umk-ninth').classList.remove('d-none');
             });
 
-            document.getElementById('math-insert-formula').addEventListener('click', function () {
-                currentTextarea.value += document.getElementById('math-editor').value;
+            // EIGHTH PAGE LAB QUESTION FUNCTIONALITY END
+
+            document.getElementById('seventh-math-insert-formula').addEventListener('click', function () {
+                currentTextarea.value += '[:' + document.getElementById('seventh-math-editor').value + ':]';
+            });
+            document.getElementById('eighth-math-insert-formula').addEventListener('click', function () {
+                currentTextarea.value += '[:' + document.getElementById('eighth-math-editor').value + ':]';
+            });
+            document.getElementById('ninth-math-insert-formula').addEventListener('click', function () {
+                currentTextarea.value += '[:' + document.getElementById('ninth-math-editor').value + ':]';
             });
         }
     });

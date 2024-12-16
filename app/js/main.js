@@ -1,5 +1,5 @@
-var apiUrl = 'http://localhost:8000';
-// var apiUrl = 'https://innovative-faye-adildevelop-3c32d2c9.koyeb.app/';
+// var apiUrl = 'http://adil-server.org:8000';
+var apiUrl = 'https://innovative-faye-adildevelop-3c32d2c9.koyeb.app/';
 
 $( document ).ready(function () {
     if (typeof localStorage === "undefined" || localStorage === null) {

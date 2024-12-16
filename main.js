@@ -1,12 +1,10 @@
 const { app, BrowserWindow } = require('electron')
 
 const createWindow = () => {
-    const win = new BrowserWindow({
-        minimizable: false
-    })
+    const win = new BrowserWindow()
 
-    // win.removeMenu()
-    win.maximize();
+    win.removeMenu()
+    win.maximize()
     win.loadFile('app/index.html')
 }
 
