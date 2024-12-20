@@ -73,6 +73,21 @@
         </div>
     </div>
 
+    <div class="d-flex justify-content-center mt-5">
+        <div class="protocol-group-block d-flex mb-2">
+            <div class="departmentProtocolBlock me-5">
+                <label for="departmentProtocolLabel" class="mb-2">Введите номер протокола и дату заседания кафедры:</label>
+                <input id="departmentProtocolInput" type="number" class="form-control mb-3" placeholder="Номер протокола" min="0">
+                <input id="departmentDateInput" type="date" class="form-control" max="2099-12-12">
+            </div>
+            <div class="facultyProtocolBlock">
+                <label for="facultyProtocolLabel" class="mb-2">Введите номер протокола и дату заседания факультета:</label>
+                <input id="facultyProtocolInput" type="number" class="form-control mb-3" placeholder="Номер протокола" min="0">
+                <input id="facultyDateInput" type="date" class="form-control" max="2099-12-12">
+            </div>
+        </div>
+    </div>
+
     <div class="d-flex flex-column w-25 m-auto">
         <input id="umk-index-back" class="btn btn-custom my-4" type="submit" value="Назад">
         <input id="umk-index-continue" class="btn btn-custom mt-4" type="submit" value="Продолжить">
@@ -523,6 +538,10 @@
 </form>
 
 <form id="umk-twelfth" class="d-none">
+    <div class="d-flex">
+        <button id="back-to-menu" class="btn btn-custom">Вернуться в меню</button>
+    </div>
+    
     <div class="d-flex justify-content-center align-items-center mt-3">
         <h4 class="my-0 me-1">Критерии суммарного оценивания обучающихся за выполнение заданий</h4>
         <a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="1) Данный раздел содержит критерии оценивания обучающихся в контексте предложенной дисциплины. Критерии носят суммативный характер и применяются для оценки результатов обучения по окончании курса. <br>

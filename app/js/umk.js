@@ -5,11 +5,13 @@ function createUmk() {
         success: function(data){
             var currentTextarea = '';
             document.querySelector('.main-form').innerHTML = data;
-            enableTooltips();
-
             document.getElementById('back-to-menu').addEventListener('click', event => {
                 openMainMenu();
             });
+            document.getElementById('departmentDateInput').value = moment().format('YYYY-MM-DD');
+            document.getElementById('facultyDateInput').value = moment().format('YYYY-MM-DD');
+            enableTooltips();
+
             document.getElementById('tematics-count-btn').addEventListener('click', function (event) {
                 event.preventDefault();
 
@@ -334,6 +336,10 @@ function createUmk() {
                     course: document.getElementById('courseSelect').value,
                     study_time: document.getElementById('studyTimeSelect').value,
                     credits: document.getElementById('creditsSelect').value,
+                    department_protocol: document.getElementById('departmentProtocolInput').value,
+                    department_date: document.getElementById('departmentDateInput').value,
+                    faculty_protocol: document.getElementById('facultyProtocolInput').value,
+                    faculty_date: document.getElementById('facultyDateInput').value,
                 }
 
                 $.ajax({
