@@ -337,9 +337,9 @@ function createUmk() {
                     study_time: document.getElementById('studyTimeSelect').value,
                     credits: document.getElementById('creditsSelect').value,
                     department_protocol: document.getElementById('departmentProtocolInput').value,
-                    department_date: document.getElementById('departmentDateInput').value,
+                    department_date: moment(document.getElementById('departmentDateInput').value, 'YYYY-MM-DD').format('DD.MM.YYYY'),
                     faculty_protocol: document.getElementById('facultyProtocolInput').value,
-                    faculty_date: document.getElementById('facultyDateInput').value,
+                    faculty_date: moment(document.getElementById('facultyDateInput').value, 'YYYY-MM-DD').format('DD.MM.YYYY'),
                 }
 
                 $.ajax({

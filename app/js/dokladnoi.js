@@ -226,7 +226,7 @@ function createDokladnoi() {
 
                 let data = {
                     name: document.getElementById('nameInput').value,
-                    date: document.getElementById('dateInput').value,
+                    date: moment(document.getElementById('dateInput').value, 'YYYY-MM-DD').format('DD.MM.YYYY'),
                     faculty: faculty,
                     dean: dean,
                     department: document.getElementById('departmentSelect').value,
